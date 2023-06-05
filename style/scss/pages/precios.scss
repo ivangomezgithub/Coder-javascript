@@ -1,0 +1,17 @@
+.cardPrecios {
+    color: aqua;
+    background-color: rgb(255, 245, 235);
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+
+
+    .cardPreciosItems {
+        color: coral;
+        background-color: rgba(0, 0, 0, 0.034);
+        padding: 24px;         
+        max-width: 300PX;
+    }
+}

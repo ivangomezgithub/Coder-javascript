@@ -1,0 +1,51 @@
+@media (min-width: 480px) {
+    
+    .barraNav {
+        padding: 24px 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap ;
+        justify-content: center;
+        background-color: rgb(255, 245, 240);
+        align-items: end;
+        position: sticky;
+    
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content:space-between;
+            list-style: none;
+        }
+
+        li {
+            font-family: 'Sansita Swashed', cursive;
+            padding: 10px;
+            text-align: center;
+
+            :hover {
+                background-color: azure;
+                padding: 10px;
+                border-radius: 5px; 
+            }
+            
+        }
+        
+    }
+
+}
+
+@media (max-width: 700px) {
+    .barraNav{
+        display: none;
+    }
+}
+
+@media (min-width: 700px) {
+    .navBoot{
+        display: none;
+    }
+}
+
+
+
+

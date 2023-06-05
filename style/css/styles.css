@@ -1,0 +1,198 @@
+/*base del proyecto sass*/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Slab", serif;
+  color: rgb(255, 139, 135);
+}
+
+a:visited {
+  color: rgb(255, 137, 119);
+  text-decoration: none;
+}
+a:link {
+  color: rgb(240, 85, 13);
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(131, 68, 68);
+  text-decoration: none;
+}
+
+h1, h3, h2 {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.Titulos {
+  color: rgb(255, 38, 0);
+  padding: 24px 12px 6px;
+}
+
+.contCenter {
+  text-align: center;
+}
+
+.TextJumbotron {
+  background-color: rgb(255, 55, 20);
+  padding: 8px 24px;
+  border-radius: 25px;
+}
+
+.logoHotel {
+  background-image: url(/images/logo\ Horizontal.png);
+  height: 133px;
+  width: 314px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 480px) {
+  .barraNav {
+    padding: 24px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgb(255, 245, 240);
+    align-items: end;
+    position: sticky;
+  }
+  .barraNav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+  }
+  .barraNav li {
+    font-family: "Sansita Swashed", cursive;
+    padding: 10px;
+    text-align: center;
+  }
+  .barraNav li :hover {
+    background-color: azure;
+    padding: 10px;
+    border-radius: 5px;
+  }
+}
+@media (max-width: 700px) {
+  .barraNav {
+    display: none;
+  }
+}
+@media (min-width: 700px) {
+  .navBoot {
+    display: none;
+  }
+}
+.bannerPrincipal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-image: url(/images/hotel\ torre\ primavera\ portada\ facebook.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 400px;
+  color: rgb(255, 255, 255);
+}
+.bannerPrincipal p {
+  color: rgb(255, 255, 255);
+}
+.bannerPrincipal h1, .bannerPrincipal h2, .bannerPrincipal h3 {
+  color: rgb(255, 255, 255);
+}
+
+#banner {
+  background-color: aqua;
+}
+
+.carruselIndex {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-content: end;
+}
+
+.recomendados {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  gap: 12px;
+}
+
+.cards {
+  background-color: antiquewhite;
+  padding: 12px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1;
+}
+.cards p {
+  text-align: justify;
+}
+
+@media (max-width: 1000px) {
+  .recomendados {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .recomendados {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
+.bannerCaract {
+  background-image: url(/images/banners/Medellin.jpg);
+  background-position: bottom;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (min-width: 480px) {
+  .bannerCaract {
+    background-image: url(/images/banners/Medellin.jpg);
+    background-position: bottom;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+.caracteristicas {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cardCaract {
+  background-color: beige;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 300px;
+}
+
+.cardPrecios {
+  color: aqua;
+  background-color: rgb(255, 245, 235);
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.cardPrecios .cardPreciosItems {
+  color: coral;
+  background-color: rgba(0, 0, 0, 0.034);
+  padding: 24px;
+  max-width: 300PX;
+}
+
+/*# sourceMappingURL=styles.css.map */

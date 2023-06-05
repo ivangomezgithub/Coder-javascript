@@ -1,117 +1,83 @@
-/*
+//saludo
 
-let saludo = prompt ("Hola estas interesado en conseguir habitaciones en medellin");
+alert ("Hola Bienvenido a nuestro sitio Hotel Torre Primavera")
+alert ("Regalanos alguna información para brindarte a primera mano los espacios de alojamiento que tenemos para ti");
 
-if (saludo == "si" || saludo== "SI"){
-    alert ("estas en el el lugar indicado para conseguir lo que deseas")
-}else{
-    alert("tenemos las mejores opciones de alojamiento para ti en medellin")
+
+//Crear un algoritmo con un condicional.
+
+let nomUsuario = prompt ("Digita tu nombre Completo de lo contrario digita ESC");
+
+
+if (nomUsuario != "ESC") {
+    alert ("hola " + nomUsuario)
+}
+
+else (
+    alert("Digitaste ESC")
+);
+
+//Crear un algoritmo utilizando un ciclo.
+
+
+let ciudadUsuario = prompt ("Contanos pues de que ciudad eres");
+
+if (ciudadUsuario == "Medellin" || ciudadUsuario == "medellin") {
+
+   for (let i = 0; i < 5; i++) {
+  console.log ("Elegiste la ciudad de Medellin donde tenemos estas opciones de Alojamiento para ti 60" + i + "b");
+    }
+}
+
+else if (ciudadUsuario == "Bogota"){
+    console.log ("proximamente Dispondremos de alojamientos en esta ciudad")
+}
+
+else {
+    alert("Disculpanos no tenemos opciones de alojamiento en la Ciudad de: " + ciudadUsuario);
+
+    while(ciudadUsuario != "medellin") {
+        ciudadUsuario = prompt ("Contanos pues de que ciudad eres de lo controrio ingresa la ciudad de medellin si estas interesado en conocer nuestra oferta en esta ciudad")
+    }
+
 };
 
 
-let numero = prompt ("regalame un numero");
 
-if (numero >= 1000){
-    alert ("el numero es mayor de 1000")
+//Armar un simulador interactivo, la estructura final de tu proyecto integrador.
+//simula la entrada de datos de 
+
+
+
+let valorUno = parseInt (prompt("cuanto es tu presupiesto maximo"))
+let valorDos = parseInt (prompt("cuanto es tu presupiesto minimo"))
+
+let estimado = (valorUno + valorDos) / 2;
+
+
+function rangoPresupuesto (valorUno, valorDos) {
+    return valorUno - valorDos
 }
 
-let saludo2 = prompt ("saludanos");
+alert ("hola " + nomUsuario + "tu presupuesto para tu alojamiento se ajusta en un rango de: " + rangoPresupuesto (valorUno,valorDos));
 
-if (saludo2 == "hola"){
-    console.log    ("hola para ti")
+
+
+//simulador precios variando la disponibilidad en cantidad de personas, ademas de sugerir un precio
+
+let cantPersonas = parseInt(prompt("¿Pa cuantos le preparo cama Mijo?"));
+
+if (cantPersonas <=4){
+    alert("Nuestras acomodaciones para esta cant de personas tiene un costo de: 480.000 y tu estimado esta en: " + estimado )
 }
 
-let entre10y50 = prompt("regalanos un numero del 1 al 100")
-let entreParseado = parseInt (entre10y50);
-
-if (entreParseado >= 10 && entreParseado <= 50){
-    alert("el numero que pusiste esta entre 10 y 50")
+else if (cantPersonas >=5 & cantPersonas <=8) {
+    alert("Nuestras acomodaciones para esta cant de personas tiene un costo de: 780.000 y tu estimado esta en: " + estimado )
 }
-
-*/
-
-console.log ("clase 3");
-//hacer tabla de multiplicar
-
-//let numero = parseInt( prompt ("ingrese numero"));
-
-/*
-for (let i = 0; i < 10; i++){
-    let resultado = numero  * (i+1);
-    console.log(numero + "x" + (i+1) + ":" + resultado)
-
+else if (cantPersonas >=8 & cantPersonas <=12) {
+    alert("Nuestras acomodaciones para esta cant de personas tiene un costo de: 180.000 y tu estimado esta en: " + estimado )
 }
-
-*/
-
-/*
-
-let i = 1;
-while (i <= 10){
-    let resultado = numero * 1 ;
-    console.log(numero + "x" + (i) + ":" + resultado)
-    i++;
-}
-
-*/
-
-
-
-//let nombre = prompt ("ingrese salir para salir");
-/*
-
-
-while(nombre != "salir"){
-    console.log ("usted ingreso:" + nombre)
-    nombre = prompt ("ingrese salir para salir")
-}
-*/
-
-
-/*
-do {
-    console.log ("usted ingreso:" + nombre)
-    nombre = prompt ("ingrese nombre salir para salir")
-} while(nombre != "salir");
-*/
-
-/*
-
-let opcion = prompt ("1- para mostrar el numero que digitaste, 2- para calcular 10+10, 3- salir");
-
-
-while (opcion != "ESC"){
-    switch (opcion) {
-        case "1" :
-        console.log ("digitaste el numero 1")
-    //mostrar un saludo
-            break;
-        case "2" :
-        console.log ("la suma de 10 + 10 da:" + (10+10))
-    //para calcular 10+10
-            break;
-        case "3" :
-
-            //salir
-            break;
-        default:
-            console.log ("ingreso mal la opcion")
-            break;
-    }
-    opcion = prompt ("1- para mostrar un saludo 2- para calcular 10+10 3- salir")
-}
-
-*/
-
-
-
-
-
-
-let valorPropio = 2;
-let valor =  parseInt (prompt ("hola digita un numero"));
-
-for ( i=0; i<5; i++){
-    console.log("vas a ver tu numero sumadole 2:" + (valor + i+2)
-
+else {
+    alert("Disculpanos no tenemos disponibilidad para esa cantidad de personas, si digitaste por error mas de 12 personas, te volvermos a preguntar")
+    cantPersonas = parseInt(prompt("¿Pa cuantos te preparo cama: ?" + nomUsuario));
 }

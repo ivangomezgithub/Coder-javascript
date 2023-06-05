@@ -1,0 +1,67 @@
+/*base del proyecto sass*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Slab', serif;
+    color: rgb(255, 139, 135); 
+}
+
+a {
+
+&:visited {
+    color: rgb(255, 137, 119);
+    text-decoration: none;
+}
+
+&:link {
+    color: rgb(240, 85, 13);
+    text-decoration: none;
+}
+
+&:hover {
+    color: rgb(131, 68, 68);
+    text-decoration: none;
+}
+
+}
+
+h1 {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+//extendt h1
+h2 {
+    @extend h1;
+}
+
+h3{
+    @extend h1;
+}
+
+
+.Titulos {
+  color: rgb(255, 38, 0); 
+  padding: 24px 12px 6px; 
+}
+
+.contCenter {
+    text-align: center;
+
+}
+
+.TextJumbotron {
+    background-color: rgb(255, 55, 20);
+    padding: 8px 24px;
+    border-radius: 25px;
+
+}
+
+.logoHotel {
+    background-image: url(/images/logo\ Horizontal.png);
+    height: 133px;
+    width: 314px;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
