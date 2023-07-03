@@ -1,17 +1,20 @@
-.cardPrecios {
+.contPrecios {
     color: aqua;
     background-color: rgb(255, 245, 235);
     display: flex;
+    flex-direction: row;
     gap: 24px;
     padding: 24px;
     justify-content: center;
-    flex-wrap: wrap;
 
 
     .cardPreciosItems {
-        color: coral;
-        background-color: rgba(0, 0, 0, 0.034);
         padding: 24px;         
         max-width: 300PX;
+        border-radius: 1rem;
+background: linear-gradient(145deg, #e6bdaf, #ffe1d0);
+box-shadow:  15px 15px 30px #d6b0a3,
+             -15px -15px 30px #fff4e1;
+
     }
 }

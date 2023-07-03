@@ -1,3 +1,5 @@
+
+
 //ARRAY COLORES
 let color = ["amarillo", "azul", "rojo", "negro"];
 //ACTUALIZACION DE COLORES
@@ -53,10 +55,12 @@ const precios = {
 const arrayHabitaciones = [];
 
 
+//arrray tipos de habitaciones
+let tipo = ["sencilla", "doble", "familiar", "deluxe"];
+
+
 //constructor de habitaciones =>
-
-
-class habitacion{
+class habitaciones{
     constructor (id, nombre, descripcion, precio, img, tipo) {
         this.id= id,
         this.nombre= nombre,
@@ -67,20 +71,18 @@ class habitacion{
     }
 }
 
-//arrray tipos de habitaciones
-let tipos = ["sencilla", "doble", "familiar", "deluxe"];
 
-const hab402 = new habitacion ("402", "Paraiso", "hab sencilla para una o dos persona", precios.sencilla, "hab402.jpg", tipos[0], )
+const hab402 = new habitaciones ("402", "Paraiso", "hab sencilla para una o dos persona", precios.sencilla, "hab402.jpg", tipo[0], )
 arrayHabitaciones.push(hab402);
-const hab602a = new habitacion ("602a", "El Dorado", "la mejor hab del hotel", precios.sencilla, "hab602a.jpg", tipos[0], )
+const hab602a = new habitaciones ("602a", "El Dorado", "la mejor hab del hotel", precios.sencilla, "hab602a.jpg", tipo[0], )
 arrayHabitaciones.push(hab602a);
-const hab702b = new habitacion ("702b", "la Eterna primaver", "habitación doble, ideal para pasear en pareja", precios.doble, "hab702b.jpg", tipos[2] )
+const hab702b = new habitaciones ("702b", "la Eterna primaver", "habitación doble, ideal para pasear en pareja", precios.doble, "hab702b.jpg", tipo[2] )
 arrayHabitaciones.push(hab702b);
 
 
 //funcion mostrar hab sencillas
-const mostrarSencillas = () =>{
-    const filtro = arrayHabitaciones.filter((el) => el.tipo === "sencilla");
+const mostrarPorCategoria = (tipo) =>{
+    const filtro = arrayHabitaciones.filter((el) => el.tipo === tipo);
     let mensajeAmostrar = "";
     filtro.forEach ((el) =>{
         mensajeAmostrar += `\nEl producto elegido es: ${el.id} \n y su precio es: ${el.precio} \nsu categoria es: ${el.tipo}`;
@@ -88,30 +90,10 @@ const mostrarSencillas = () =>{
     alert(mensajeAmostrar);
 }
 
-//funcion mostrar hab dobles
-const mostrarDobles = () =>{
-    const filtro = arrayHabitaciones.filter((el) => el.tipo === "doble");
-    let mensajeAmostrar = "";
-    filtro.forEach ((el) =>{
-        mensajeAmostrar += `En su rango estan estas habitaciones sencillas \nEl producto elegido es: ${el.id} \n y su precio es: ${el.precio} \nsu categoria es: ${el.tipo} `;
-    })
-    alert(mensajeAmostrar);
-}
-
-//funcion mostrar hab Familiar
-const mostrarFamiliar = () =>{
-    const filtro = arrayHabitaciones.filter((el) => el.tipo === "familiar");
-    let mensajeAmostrar = "";
-    filtro.forEach ((el) =>{
-        mensajeAmostrar += `En su rango estan estas habitaciones sencillas \nEl producto elegido es: ${el.id} \n y su precio es: ${el.precio} \nsu categoria es: ${el.tipo} `;
-    })
-    alert(mensajeAmostrar);
-}
-
 
 const fin = 4;
 
-//funcion mostrar hab sencillas
+//funcion mostrar hab
 const verProductos = () => {
     let opcion;
     opcion = parseInt(prompt("digita el tipo de espacios que deseas reservar \n sencillo \n doble \n familiar \n  de lo contrario digita fin"));
@@ -119,13 +101,13 @@ const verProductos = () => {
 while (opcion != fin) {
     switch (opcion) {
         case 1:
-            mostrarSencillas()
+            mostrarPorCategoria("sencilla")
             break;
         case 2:
-            mostrarDobles()
+            mostrarPorCategoria("doble")
             break;
         case 3:
-            mostrarFamiliar()
+            mostrarPorCategoria("familiar")
             break;
         default:
             alert("ingreso una opcion invalida")
@@ -136,9 +118,6 @@ while (opcion != fin) {
 }
 
 verProductos();
-
-
-
 
 
 
@@ -172,10 +151,54 @@ const personaUno = new datosUsuario(prompt("Cual es tu nombre"), prompt("Cual es
 
 ////CONSOLE.LOGS
 //console.log(precios);
-////console.log(Habitaciones);
+//console.log(Habitaciones);
 saludo();
 console.log("estos son los datos del usuario:" + " "+ personaUno.nombre + personaUno.apellido +" " + personaUno.correo + " "+ personaUno.edad);
 //
 //
 //console.log(datosHotel.descripcionHotel);
 //console.log(color[4]);
+
+
+
+
+//DOM -- DOM -- DOM
+console.log(arrayHabitaciones);
+
+
+//function renderizarProductos () {
+//    let listaHabitaciones = document.createElement("ol");
+//
+//    for (const habitacion of arrayHabitaciones) {
+//        let objHabitacion = document.createElement("li");
+//        objHabitacion.innerHTML = `ID: ${habitacion.id} | Nombre: ${habitacion.nombre} |  precio: ${habitacion.precio}`;
+//        listaHabitaciones.append(objHabitacion)
+//    }
+//    document.body.append(listaHabitaciones)
+//}//
+//renderizarProductos ();
+
+
+
+function renderizarProductos2 () {
+    for (const habitacion of arrayHabitaciones) {
+        let card = document.createElement("div");
+        card.classList.add("cards", "container")
+
+
+        card.innerHTML = `<img src="/images/hab/${habitacion.img}" alt="${habitacion.descripcion}" style="width:30%">
+                            <div class = "container">
+                            <h4> <b>id: ${habitacion.id}</b></h4>
+                            <p>${habitacion.descripcion}</p>
+                            <p>$${habitacion.precio}</p>
+                            <button type="button" class="btn btn-primary" id="btnMasInfo">Mas Info</button>
+                            </div>`;
+        document.body.append(card);
+    }   
+  
+}
+renderizarProductos2();
+
+
+
+
