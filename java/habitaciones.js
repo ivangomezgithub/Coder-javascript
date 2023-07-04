@@ -80,6 +80,7 @@ verProductos();
 
 
 let contHabitaciones = document.getElementById("habs");
+
 contHabitaciones= document.createElement("div");
 contHabitaciones.classList.add("container");
 contHabitaciones.innerHTML =`<h1>hola</h1> 
@@ -91,7 +92,7 @@ document.body.appendChild(contHabitaciones);
 
 
 
-const contPrecios = document.getElementById("contPrecios");
+const contPrecios = document.getElementById("habs");
 
 function renderizarProductos2 () {
     for (const habitacion of arrayHabitaciones) {
