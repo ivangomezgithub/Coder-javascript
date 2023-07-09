@@ -4,13 +4,13 @@
     margin: 0;
     padding: 0;
     font-family: 'Roboto Slab', serif;
-    color: rgb(255, 139, 135); 
+    color: rgb(219, 98, 50); 
 }
 
 a {
 
 &:visited {
-    color: rgb(255, 137, 119);
+    color: #EA5A4B;
     text-decoration: none;
 }
 
@@ -56,6 +56,14 @@ h3{
     border-radius: 25px;
 
 }
+
+.TextJumbotronV {
+    background-color: rgb(88, 187, 31);
+    padding: 8px 24px;
+    border-radius: 25px;
+
+}
+
 
 .logoHotel {
     background-image: url(/images/logo\ Horizontal.png);

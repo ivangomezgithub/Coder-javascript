@@ -3,11 +3,11 @@
   margin: 0;
   padding: 0;
   font-family: "Roboto Slab", serif;
-  color: rgb(255, 139, 135);
+  color: rgb(219, 98, 50);
 }
 
 a:visited {
-  color: rgb(255, 137, 119);
+  color: #EA5A4B;
   text-decoration: none;
 }
 a:link {
@@ -34,6 +34,12 @@ h1, h3, h2 {
 
 .TextJumbotron {
   background-color: rgb(255, 55, 20);
+  padding: 8px 24px;
+  border-radius: 25px;
+}
+
+.TextJumbotronV {
+  background-color: rgb(88, 187, 31);
   padding: 8px 24px;
   border-radius: 25px;
 }
@@ -85,7 +91,7 @@ h1, h3, h2 {
     display: none;
   }
 }
-.bannerPrincipal {
+.bannerPrincipal, .bannerReservas {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -98,15 +104,15 @@ h1, h3, h2 {
   height: 400px;
   color: rgb(255, 255, 255);
 }
-.bannerPrincipal p {
+.bannerPrincipal p, .bannerReservas p {
   color: rgb(255, 255, 255);
 }
-.bannerPrincipal h1, .bannerPrincipal h2, .bannerPrincipal h3 {
+.bannerPrincipal h1, .bannerReservas h1, .bannerPrincipal h2, .bannerReservas h2, .bannerPrincipal h3, .bannerReservas h3 {
   color: rgb(255, 255, 255);
 }
 
 #banner {
-  background-color: aqua;
+  background-color: rgb(65, 33, 7);
 }
 
 .carruselIndex {
@@ -119,16 +125,26 @@ h1, h3, h2 {
 
 .recomendados {
   display: grid;
+  background-color: rgb(255, 245, 235);
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
   gap: 12px;
+  padding: 24px 24px;
+}
+
+#habsRecomendadas img {
+  border-radius: 10%;
+  border-style: solid;
+  border-color: aliceblue;
+  border-width: 5px;
 }
 
 .cards {
   background-color: antiquewhite;
-  padding: 12px;
+  padding: 24px;
   grid-template-columns: 1fr;
   grid-template-rows: 1;
+  border-radius: 1rem;
 }
 .cards p {
   text-align: justify;
@@ -179,21 +195,32 @@ h1, h3, h2 {
   max-width: 300px;
 }
 
-.contPrecios {
-  color: aqua;
+.contPrecios, #app {
   background-color: rgb(255, 245, 235);
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 24px;
   padding: 24px;
   justify-content: center;
+  height: 50%;
 }
-.contPrecios .cardPreciosItems {
+.contPrecios img, #app img {
+  border-radius: 10%;
+  border-style: solid;
+  border-color: aliceblue;
+  border-width: 5px;
+}
+.contPrecios .cardPreciosItems, #app .cardPreciosItems {
+  background-color: antiquewhite;
   padding: 24px;
-  max-width: 300PX;
   border-radius: 1rem;
-  background: linear-gradient(145deg, #e6bdaf, #ffe1d0);
-  box-shadow: 15px 15px 30px #d6b0a3, -15px -15px 30px #fff4e1;
+  max-width: 250PX;
+}
+
+.bannerReservas {
+  background-image: url(/images/banners/bannerReservas.jpg);
+  padding-color: black;
 }
 
 /*# sourceMappingURL=styles.css.map */

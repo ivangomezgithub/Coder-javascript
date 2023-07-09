@@ -43,41 +43,20 @@ function calculadora(num1, num2, op) {
 
 
 
-//PRECIOS HABS OBJ
-const precios = {
-    sencilla: 480000,
-    doble: 650000,
-    familiar: 980000,
 
-};
+
 
 //ARRAY HABS con OBJ
 const arrayHabitaciones = [];
 
+productosIniciales (arrayHabitaciones);
 
-//arrray tipos de habitaciones
-let tipo = ["sencilla", "doble", "familiar", "deluxe"];
 
 
 //constructor de habitaciones =>
-class habitaciones{
-    constructor (id, nombre, descripcion, precio, img, tipo) {
-        this.id= id,
-        this.nombre= nombre,
-        this.descripcion= descripcion,
-        this.precio= precio,
-        this.img= img,
-        this.tipo = tipo
-    }
-}
+import {productosIniciales,habitaciones} from "./clases.js";
 
 
-const hab402 = new habitaciones ("402", "Paraiso", "hab sencilla para una o dos persona", precios.sencilla, "hab402.jpg", tipo[0], )
-arrayHabitaciones.push(hab402);
-const hab602a = new habitaciones ("602a", "El Dorado", "la mejor hab del hotel", precios.sencilla, "hab602a.jpg", tipo[0], )
-arrayHabitaciones.push(hab602a);
-const hab702b = new habitaciones ("702b", "la Eterna primaver", "habitación doble, ideal para pasear en pareja", precios.doble, "hab702b.jpg", tipo[2] )
-arrayHabitaciones.push(hab702b);
 
 
 //funcion mostrar hab sencillas
@@ -178,7 +157,7 @@ console.log(arrayHabitaciones);
 //}//
 //renderizarProductos ();
 
-
+const habsRecomendadas = document.getElementById("habsRecomendadas");
 
 function renderizarProductos2 () {
     for (const habitacion of arrayHabitaciones) {
@@ -186,19 +165,17 @@ function renderizarProductos2 () {
         card.classList.add("cards", "container")
 
 
-        card.innerHTML = `<img src="/images/hab/${habitacion.img}" alt="${habitacion.descripcion}" style="width:30%">
+        card.innerHTML = `<img src="/images/hab/${habitacion.img}" alt="${habitacion.descripcion}" style="width:100%">
                             <div class = "container">
-                            <h4> <b>id: ${habitacion.id}</b></h4>
+                            <h4> <b> HABITACION ID: ${habitacion.id}</b></h4>
                             <p>${habitacion.descripcion}</p>
                             <p>$${habitacion.precio}</p>
-                            <button type="button" class="btn btn-primary" id="btnMasInfo">Mas Info</button>
+                            <button type="button" class="btn btn-info">Mas Info</button>
                             </div>`;
-        document.body.append(card);
+        habsRecomendadas.append(card);
     }   
   
 }
 renderizarProductos2();
-
-
 
 

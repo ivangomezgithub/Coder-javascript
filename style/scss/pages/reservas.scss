@@ -1,0 +1,9 @@
+.bannerReservas {
+    @extend .bannerPrincipal;
+    
+    background-image: url(/images/banners/bannerReservas.jpg);
+    
+    padding: {
+        color: black;
+    };
+}

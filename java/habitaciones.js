@@ -1,128 +1,83 @@
 
-//PRECIOS HABS OBJ
-const precios = {
-    sencilla: 480000,
-    doble: 650000,
-    familiar: 980000,
-
-};
+const arrayCarrito = JSON.parse(localStorage.getItem("Carrito")) || [];
 
 //ARRAY HABS con OBJ
 const arrayHabitaciones = [];
 
-
-//arrray tipos de habitaciones
-let tipo = ["sencilla", "doble", "familiar", "deluxe"];
-
-
-//constructor de habitaciones =>
-class habitaciones{
-    constructor (id, nombre, descripcion, precio, img, tipo) {
-        this.id= id,
-        this.nombre= nombre,
-        this.descripcion= descripcion,
-        this.precio= precio,
-        this.img= img,
-        this.tipo = tipo
-    }
-}
+//SE DECLARA EL PARAMETRO DE ARRAY HABS
+productosIniciales (arrayHabitaciones);
 
 
-const hab402 = new habitaciones ("402", "Paraiso", "hab sencilla para una o dos persona", precios.sencilla, "hab402.jpg", tipo[0], )
-arrayHabitaciones.push(hab402);
-const hab602a = new habitaciones ("602a", "El Dorado", "la mejor hab del hotel", precios.sencilla, "hab602a.jpg", tipo[0], )
-arrayHabitaciones.push(hab602a);
-const hab702b = new habitaciones ("702b", "la Eterna primaver", "habitación doble, ideal para pasear en pareja", precios.doble, "hab702b.jpg", tipo[2] )
-arrayHabitaciones.push(hab702b);
+//IMPORT PRODUCTOS DE .CLASES
+import {productosIniciales,habitaciones} from './clases.js';
 
 
-//funcion mostrar hab sencillas
-const mostrarPorCategoria = (tipo) =>{
-    const filtro = arrayHabitaciones.filter((el) => el.tipo === tipo);
-    let mensajeAmostrar = "";
-    filtro.forEach ((el) =>{
-        mensajeAmostrar += `\nEl producto elegido es: ${el.id} \n y su precio es: ${el.precio} \nsu categoria es: ${el.tipo}`;
-    })
-    alert(mensajeAmostrar);
-};
+const app = document.querySelector("#app");
+const buttonCarrito = document.querySelector("#btn-Carrito")
+buttonCarrito.addEventListener("click",()=>{
+})
+
+let productoEncontrado = {};
 
 
-const fin = 4;
+const input = document.querySelector("#search");
 
-//funcion mostrar hab
-const verProductos = () => {
-    let opcion;
-    opcion = parseInt(prompt("digita el tipo de espacios que deseas reservar \n sencillo \n doble \n familiar \n  de lo contrario digita fin"));
-    
-while (opcion != fin) {
-    switch (opcion) {
-        case 1:
-            mostrarPorCategoria("sencilla");
-            break;
-        case 2:
-            mostrarPorCategoria("doble");
-            break;
-        case 3:
-            mostrarPorCategoria("familiar");
-            break;
-        default:
-            alert("ingreso una opcion invalida");
-            break;
-    }
-    opcion = parseInt(prompt("digita el tipo de espacios que deseas reservar \n sencillo \n doble \n familiar \n  de lo contrario digita fin"));
-}
-}
+input.addEventListener("input",(event) => {
+    productoEncontrado = arrayHabitaciones.find(el => el.id === event.target.value)   
+})
 
-verProductos();
+input.addEventListener("keypress",(event)=>{
+   (event.key === "Enter" && productoEncontrado) && console.log("el producto es:",productoEncontrado) 
+})
 
 
 
 
+buttonCarrito.addEventListener ("click", () => {
 
-let contHabitaciones = document.getElementById("habs");
+    app.innerHTML = ``
+    arrayCarrito.forEach(el => {
 
-contHabitaciones= document.createElement("div");
-contHabitaciones.classList.add("container");
-contHabitaciones.innerHTML =`<h1>hola</h1> 
-    <p>mundo</p>`;
-    
-
-
-document.body.appendChild(contHabitaciones);
-
-
-
-const contPrecios = document.getElementById("habs");
-
-function renderizarProductos2 () {
-    for (const habitacion of arrayHabitaciones) {
-        let card = document.createElement("div");
+        const card = document.createElement("div");
         card.classList.add("cardPreciosItems");
-
-
         card.innerHTML = `
-                            <img src="/images/hab/${habitacion.img}" alt="${habitacion.descripcion}" style="width:30%">
-                            <h4> <b>HABITACIÓN ID: ${habitacion.id}</b></h4>
-                            <p>${habitacion.descripcion}</p>
-                            <p>$${habitacion.precio}</p>
-                            <button type="button" class="btn btn-primary" id="btnMasInfo">Agregar a carrito</button>
+                            <img src="/images/hab/${el.img}" alt="${el.descripcion}" style="width:100%">
+                            <br><br>
+                            <h4> <b>HABITACIÓN ID: ${el.id}</b></h4>
+                            <p>${el.descripcion}</p>
+                            <h5><strong>$${el.precio}</strong></h5>
                             `;
-        contPrecios.appendChild(card);
-    }   
-  
-}
-renderizarProductos2();
+        
+            
+        app.appendChild(card);
+
+    })
+});
 
 
-const btnMasInfo = document.querySelectorAll("#btnMasInfo");
 
-console.log(btnMasInfo);
+//function ver array productor for each () en app
+arrayHabitaciones.forEach( (el) => {
+    const card = document.createElement("div");
+    card.classList.add("cardPreciosItems");
+        card.innerHTML = `
+                        <img src="/images/hab/${el.img}" alt="${el.descripcion}" style="width:100%" >
+                        <br><br>
+                        <h4> <b>HABITACIÓN ID: ${el.id}</b></h4>
+                        <p>${el.descripcion}</p>
+                        <h5><strong>$${el.precio}</strong></h5>
+                        `;
+        const buttonAgregar =   document.createElement("button");
+        buttonAgregar.innerText = "Agregar a Carrito";
+        buttonAgregar.classList.add  ("btn","btn-primary");
 
+            //Evento button
+        buttonAgregar.addEventListener("click",()=>{
+            arrayCarrito.push(el);
+            localStorage.setItem("Carrito",JSON.stringify(arrayCarrito));
+        })
 
-btnMasInfo.forEach ( el => 
-    el.addEventListener("click", () => {
-        console.log(" estas dando esta cantidad de click")
-    } )    
-);
-
+        card.append(buttonAgregar);
+    app.append(card);
+});
 

@@ -23,7 +23,7 @@
 }
 
 #banner {
-    background-color: aqua;
+    background-color: rgb(65, 33, 7);
 }
 
 .carruselIndex {
@@ -36,16 +36,31 @@
 
 .recomendados {
     display: grid;
+    background-color: rgb(255, 245, 235);
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: 1fr;
     gap: 12px;
+    padding: 24px 24px;
 }
+
+#habsRecomendadas {
+
+    img {
+        border-radius: 10%;
+        border-style:solid;
+        border-color: aliceblue;
+        border-width: 5px;
+    }
+
+}
+
 
 .cards {
     background-color: antiquewhite;
-    padding: 12px;
+    padding: 24px;
     grid-template-columns: 1fr;
     grid-template-rows: 1;
+    border-radius: 1rem;
 
     p{ 
         text-align:justify;
